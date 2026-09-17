@@ -90,7 +90,7 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
 
           <form onSubmit={handleSubmit}>
             {isSignUp && <label>ชื่อ-นามสกุล<input name="name" type="text" autoComplete="name" placeholder="ชื่อที่ใช้ในระบบ" required /></label>}
-            <label>อีเมล<input name="email" type="email" autoComplete="email" placeholder="name@company.com" required /></label>
+            <label>อีเมล<input name="email" type={isSignUp ? "email" : "text"} autoComplete="email" placeholder="name@company.com" required /></label>
             <label>รหัสผ่าน<input name="password" type="password" autoComplete={isSignUp ? "new-password" : "current-password"} placeholder="อย่างน้อย 8 ตัวอักษร" minLength={8} maxLength={128} required /></label>
             {isSignUp && <label>ยืนยันรหัสผ่าน<input name="confirmPassword" type="password" autoComplete="new-password" placeholder="กรอกรหัสผ่านอีกครั้ง" minLength={8} maxLength={128} required /></label>}
             {!isSignUp && <label className={styles.remember}><input name="rememberMe" type="checkbox" defaultChecked /><span>จดจำการเข้าสู่ระบบ</span></label>}
